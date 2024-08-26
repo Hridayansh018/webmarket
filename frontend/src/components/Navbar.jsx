@@ -9,7 +9,7 @@ const Navbar = () => {
   const [visible,setVisible] = useState(false);
 
   return (
-  <div className='flex items-center py-0 font-medium inset-  justify-between bg-gray-800 bg-opacity-30 px-3 md:px-6 backdrop-filter backdrop-blur-2xl'>
+  <div className='fixed flex items-center top-0 py-0 font-medium inset-x-0 justify-between bg-gray-700 bg-opacity-30 px-3 md:px-6 backdrop-filter backdrop-blur-3xl'>
     <img src={assets.logo} alt="" className='w-40 mr-2'/>
     
     <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
