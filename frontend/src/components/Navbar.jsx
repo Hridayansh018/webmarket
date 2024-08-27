@@ -9,7 +9,7 @@ const Navbar = () => {
   const [visible,setVisible] = useState(false);
 
   return (
-  <div className='fixed flex items-center top-0 py-0 font-medium inset-x-0 justify-between bg-gray-700 bg-opacity-30 px-3 md:px-6 backdrop-filter backdrop-blur-3xl'>
+  <div className='z-40 fixed flex items-center top-0 py-0 font-medium inset-x-0 justify-between bg-gray-800 bg-opacity-20 px-3 md:px-6 backdrop-filter backdrop-blur-lg'>
     <img src={assets.logo} alt="" className='w-40 mr-2'/>
     
     <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
@@ -56,7 +56,7 @@ const Navbar = () => {
       <img onClick={()=>setVisible(true)} src={assets.menu_icon} className='w-5 cursor-pointer sm:hidden mr-2' />
     </div>
     {/* sidebar menu for mobile screen */}
-    <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible ? "w-full h-96" : "w-0"} `}>
+    <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible ? "w-full h-screen" : "w-0"} `}>
       <div className="flex flex-col text-gray-600">
         <div className='flex items-center gap-4'>
           <img onClick={()=>setVisible(false)} src={assets.dropdown_icon} className='h-4 rotate-180' />
