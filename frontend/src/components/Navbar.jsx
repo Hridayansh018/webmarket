@@ -10,7 +10,10 @@ const Navbar = () => {
 
   return (
   <div className='z-40 fixed flex items-center top-0 py-0 font-medium inset-x-0 justify-between bg-gray-800 bg-opacity-20 px-3 md:px-6 backdrop-filter backdrop-blur-lg'>
-    <img src={assets.logo} alt="" className='w-40 mr-2'/>
+
+    <Link to={"/"}>
+      <img src={assets.logo} to={"/"} alt="" className='w-40 mr-2'/>
+    </Link>
     
     <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
 
@@ -58,14 +61,14 @@ const Navbar = () => {
     {/* sidebar menu for mobile screen */}
     <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible ? "w-full h-screen" : "w-0"} `}>
       <div className="flex flex-col text-gray-600">
-        <div className='flex items-center gap-4'>
+        <div className='flex items-center gap-4 m-3'>
           <img onClick={()=>setVisible(false)} src={assets.dropdown_icon} className='h-4 rotate-180' />
           <p className="cursor-pointer">Back</p>
         </div>
-        <NavLink onClick={()=>setVisible(false)} to={"/"} className={"mx-3 mt-3 border-b"}>HOME</NavLink>
-        <NavLink onClick={()=>setVisible(false)} to={"/collection"} className={"mx-3 mt-3 border-b"}>COLLECTION</NavLink>
-        <NavLink onClick={()=>setVisible(false)} to={"/about"} className={"mx-3 mt-3 border-b"}>ABOUT</NavLink>
-        <NavLink onClick={()=>setVisible(false)} to={"/contact"} className={"mx-3 mt-3 border-b"}>CONTACT</NavLink>
+        <NavLink onClick={()=>setVisible(false)} to={"/"} className={" h-10 border-b text-center pt-2"}>HOME</NavLink>
+        <NavLink onClick={()=>setVisible(false)} to={"/collection"} className={"text-center h-10 border-b pt-2"}>COLLECTION</NavLink>
+        <NavLink onClick={()=>setVisible(false)} to={"/about"} className={"text-center h-10 border-b pt-2"}>ABOUT</NavLink>
+        <NavLink onClick={()=>setVisible(false)} to={"/contact"} className={"text-center h-10 border-b pt-2"}>CONTACT</NavLink>
       
       </div>
     </div>
