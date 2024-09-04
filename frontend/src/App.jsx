@@ -11,6 +11,7 @@ import PlaceOrder from './pages/PlaceOrder.jsx'
 import Product from './pages/Product.jsx'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
+import SearchBar from './components/SearchBar.jsx'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <>
 
     <Navbar />
+    <SearchBar/>
 
     <div className="px-[3vw] md:px-[7vw] lg:px-[9vw]">
 

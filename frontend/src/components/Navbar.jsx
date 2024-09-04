@@ -9,7 +9,7 @@ const Navbar = () => {
   const [visible,setVisible] = useState(false);
 
   return (
-  <div className='z-40 fixed flex items-center top-0 py-0 font-medium inset-x-0 justify-between bg-gray-800 bg-opacity-20 px-3 md:px-6 backdrop-filter backdrop-blur-lg'>
+  <div className='z-40 fixed flex items-center top-0 py-0 font-medium inset-x-0 justify-between bg-gray-800 bg-opacity-20 px-3 md:px-16 backdrop-filter backdrop-blur-lg mb-12'>
 
     <Link to={"/"}>
       <img src={assets.logo} to={"/"} alt="" className='w-40 mr-2'/>
