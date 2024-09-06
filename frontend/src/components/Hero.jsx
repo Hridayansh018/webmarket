@@ -1,9 +1,11 @@
-import React from 'react'
 import { assets } from '../assets/frontend_assets/assets.js'
+import { useContext } from 'react';
+import { ShopContext } from '../context/ShopContext.jsx';
 
 const Hero = () => {
+  const { showSearch } = useContext(ShopContext);
   return (
-    <div className='flex flex-col sm:flex-row border border-gray-400 mt-20'>
+    <div className={`flex flex-col sm:flex-row border border-gray-400 ${showSearch ? 'mt-6' : 'mt-20'}`}>
       {/* left */}
       <div className='w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0 '>
         <div className='text-[#414141] '>
