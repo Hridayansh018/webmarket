@@ -1,11 +1,11 @@
-import React, { useContext, useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { ShopContext } from '../context/ShopContext.jsx';
 import { assets } from '../assets/frontend_assets/assets.js';
 import Title from '../components/Title.jsx';
 import ProductItem from '../components/ProductItem.jsx';
 
 const Collection = () => {
-  const { products } = useContext(ShopContext);
+  const { products, search, showSearch } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [catagory, setCatagory] = useState([]);
@@ -47,8 +47,18 @@ const Collection = () => {
       filtered = filtered.filter((product) => subCatagory.includes(product.subCategory));
     }
 
+    // Add search filtering
+    if (search.trim() !== '') {
+      const searchLower = search.toLowerCase();
+      filtered = filtered.filter((product) =>
+        product.name.toLowerCase().includes(searchLower) ||
+        product.category.toLowerCase().includes(searchLower) ||
+        product.subCategory.toLowerCase().includes(searchLower)
+      );
+    }
+
     setFilterProducts(filtered);
-  }, [catagory, subCatagory, products]);
+  }, [catagory, subCatagory, products, search]);
 
   return (
     <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-20 border-t'>

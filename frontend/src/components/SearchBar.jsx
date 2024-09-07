@@ -9,7 +9,6 @@ const SearchBar = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    console.log(location.pathname);
     if (location.pathname === '/' || location.pathname === '/collection' ) {
       setVisible(true);
     } else {

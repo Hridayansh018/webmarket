@@ -1,4 +1,4 @@
-import { createContext,useState } from "react";
+import { createContext,useEffect,useState } from "react";
 import { products } from "../assets/frontend_assets/assets";
 
 export const ShopContext = createContext();
@@ -9,6 +9,32 @@ const ShopContextProvider = (props) => {
     const DeliveryFee = 10;
     const [search, setSearch] = useState('');
     const [showSearch, setshowSearch] = useState(false);
+    const [cartItems, setCartItems] = useState({});
+
+    
+    const addToCart = (itemId, size) => {
+        if (!size) {
+          console.error('Size is required');
+          return;
+        }
+      
+        let cartData = structuredClone(cartItems);
+      
+        if (cartData[itemId]) {
+          if (cartData[itemId][size]) {
+            cartData[itemId][size] += 1;
+          } else {
+            cartData[itemId][size] = 1;
+          }
+        } else {
+          cartData[itemId] = {};
+          cartData[itemId][size] = 1;
+        }
+      
+        setCartItems(cartData);
+        localStorage.setItem('cart', JSON.stringify(cartData)); // Save cart to localStorage
+      };
+      
 
     const value = {
         products,
@@ -17,7 +43,10 @@ const ShopContextProvider = (props) => {
         search,
         setSearch,
         showSearch,
-        setshowSearch
+        setshowSearch,
+        cartItems,
+        setCartItems,
+        addToCart
     };
 
     return (
