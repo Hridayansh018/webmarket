@@ -6,7 +6,7 @@ import { ShopContext } from '../context/ShopContext'; // Import the ShopContext
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-  const { setshowSearch } = useContext(ShopContext); // Extract setshowSearch from context
+  const { setshowSearch, getCartCount } = useContext(ShopContext); // Extract setshowSearch from context
 
   return (
     <div className='z-40 fixed flex items-center top-0 py-0 font-medium inset-x-0 justify-between bg-gray-800 bg-opacity-20 px-3 md:px-16 backdrop-filter backdrop-blur-lg mb-12 '>
@@ -49,7 +49,7 @@ const Navbar = () => {
 
         <Link to={"/cart"} className='relative'>
           <img src={assets.cart_icon} className='w-6 cursor-pointer min-w-6 lg:mr-10' />
-          <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center bg-black text-white aspect-square rounded-full text-[10px] font-bold mr-10">0</p>
+          <p className="absolute  bottom-[-5px] w-4 text-center bg-black text-white aspect-square rounded-full text-[10px] font-bold mr-10">{getCartCount()}</p>
         </Link>
 
         {/* Mobile Hamburger Menu */}

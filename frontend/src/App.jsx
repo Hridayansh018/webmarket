@@ -11,10 +11,13 @@ import Product from './pages/Product.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import SearchBar from './components/SearchBar.jsx';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <>
+      <ToastContainer />
       <Navbar />
       <SearchBar />
 
