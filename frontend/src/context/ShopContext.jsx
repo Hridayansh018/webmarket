@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { products } from "../assets/frontend_assets/assets";
 import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 export const ShopContext = createContext();
 
@@ -10,7 +11,27 @@ const ShopContextProvider = (props) => {
     const DeliveryFee = 10;
     const [search, setSearch] = useState('');
     const [showSearch, setshowSearch] = useState(false);
-    const [cartItems, setCartItems] = useState({})
+    const [cartItems, setCartItems] = useState(() => {
+        // Load cart items from local storage on initial render
+        const savedCartItems = localStorage.getItem('cartItems');
+        return savedCartItems ? JSON.parse(savedCartItems) : {};
+    });
+    const navigate = useNavigate();
+
+    const getCartAmount = () => {
+      let totalAmount = 0;
+      for (const itemId in cartItems) {
+        const itemInfo = products.find(product => product._id === itemId);
+        if (!itemInfo) continue; // Skip if product not found
+        for (const size in cartItems[itemId]) {
+          if (cartItems[itemId][size] > 0) {
+            totalAmount += itemInfo.price * cartItems[itemId][size];
+          }
+        }
+      }
+      return totalAmount;
+    };
+    
     
     const addToCart = (itemId, size) => {
         if (!size) {
@@ -72,7 +93,7 @@ const ShopContextProvider = (props) => {
             console.log("Adding to cart:", itemId, size);
             addToCart(itemId, size);
         } else if (!size) {
-            alert("Please select a size before adding to cart.");
+            alert("Please select a size before adding to cart."); 
         } else {
             console.log("Cannot add to cart: Product data not available");
         }
@@ -127,6 +148,8 @@ const ShopContextProvider = (props) => {
     };
 
     useEffect(() => {
+        // Save cart items to local storage whenever it changes
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
         console.log("Current cart:", cartItems);
     }, [cartItems]);
 
@@ -143,7 +166,10 @@ const ShopContextProvider = (props) => {
         addToCart,
         handleAddToCart,
         getCartCount,
-        updateCartItemCount
+        updateCartItemCount,
+        removeFromCart,
+        getCartAmount,
+        navigate
     };
 
     return (
