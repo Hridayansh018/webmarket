@@ -40,13 +40,19 @@ const Orders = () => {
               return (
                 <div
                   key={index}
-                  className='flex flex-col sm:flex-row sm justify-between py-4 border-t border-b text-gray-700 gap-4'
+                  className='flex flex-row justify-between py-4 border-t border-b text-gray-700 gap-4'
                 >
                   <div className='flex items-start gap-6'>
                     <img src={productData.image} className='w-24 h-24 object-cover rounded-md' alt={productData.name} />
                     <div className='flex-grow'>
                       <p className='text-lg font-medium'>{productData.name}</p>
                       <p className='text-gray-500 font-semibold mt-1'>Size: {item.size}</p>
+                      <p className='text-gray-800 font-bold text-lg'>Price: ${item.price}</p>
+                    </div>
+                  </div>
+
+                  <div className='flex flex-col sm:flex-row items-center mt-2 gap-6'>
+                    <div>
                       <p className="text-gray-600 mt-2">Quantity: {item.quantity}</p>
                       <p className="text-gray-600">Size: {item.size}</p>
                       <div className="flex flex-col">
@@ -57,18 +63,16 @@ const Orders = () => {
                     </div>
                   </div>
 
-                  <div className="md:w-1/2 flex justify-center mx-4">
+                  <div className="md:w-1/2 flex justify-center">
                     <div className="flex gap-2 items-center">
                       <div className="w-2 h-2 rounded-full bg-green-400"></div>
                       <p className="text-gray-600">Ready to Ship</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-center text-lg font-bold text-black">
-                      <p className="text-lg ">${item.price * item.quantity}</p>
+                  <div className="flex items-center justify-center">
+                    <p className="text-lg font-semibold">${item.price * item.quantity}</p>
                   </div>
-                  
-
                 </div>
               );
             })}

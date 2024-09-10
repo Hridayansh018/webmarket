@@ -63,34 +63,35 @@ const PlaceOrder = () => {
                 onChange={handleChange}
                 placeholder='First Name'
                 className='p-2 rounded-md bg-gray-200 w-full'
+                required
               />
-              <input type="text" name="lastName" placeholder='Last Name' className='p-2 rounded-md bg-gray-200 w-full' />
+              <input type="text" name="lastName" placeholder='Last Name' className='p-2 rounded-md bg-gray-200 w-full' required />
             </div>
           </div>
 
           <div className='flex flex-col sm:flex-row gap-4'>
             <label htmlFor="email" className='text-lg w-full sm:w-1/4'>Email:</label>
-            <input type="email" name="email" placeholder='Enter your email address' className='p-2 rounded-md bg-gray-200 w-full sm:w-3/4' />
+            <input type="email" name="email" placeholder='Enter your email address' className='p-2 rounded-md bg-gray-200 w-full sm:w-3/4' required />
           </div>
 
           <div className='flex flex-col sm:flex-row gap-4'>
             <label htmlFor="address" className='text-lg w-full sm:w-1/4'>Address:</label>
             <div className='flex flex-col gap-2 w-full sm:w-3/4'>
-              <input type="text" name="street" placeholder='Street' className='p-2 rounded-md bg-gray-200' />
+              <input type="text" name="street" placeholder='Street' className='p-2 rounded-md bg-gray-200' required />
               <div className='flex flex-col sm:flex-row gap-2'>
-                <input type="text" name="city" placeholder='City' className='p-2 rounded-md bg-gray-200 w-full' />
+                <input type="text" name="city" placeholder='City' className='p-2 rounded-md bg-gray-200 w-full' required />
                 <input type="text" name="state" placeholder='State' className='p-2 rounded-md bg-gray-200 w-full' />
               </div>
               <div className='flex flex-col sm:flex-row gap-2'>
-                <input type="text" name="zipCode" placeholder='Zip Code' className='p-2 rounded-md bg-gray-200 w-full' />
-                <input type="text" name="country" placeholder='Country' className='p-2 rounded-md bg-gray-200 w-full' />
+                <input type="text" name="zipCode" placeholder='Zip Code' className='p-2 rounded-md bg-gray-200 w-full' required />
+                <input type="text" name="country" placeholder='Country' className='p-2 rounded-md bg-gray-200 w-full' required />
               </div>
             </div>
           </div>
 
           <div className='flex flex-col sm:flex-row gap-4'>
             <label htmlFor="phone" className='text-lg w-full sm:w-1/4'>Phone:</label>
-            <input type="tel" name="phone" placeholder='Enter Phone Number' className='p-2 rounded-md bg-gray-200 w-full sm:w-3/4' />
+            <input type="tel" name="phone" placeholder='Enter Phone Number' className='p-2 rounded-md bg-gray-200 w-full sm:w-3/4' required />
           </div>
         </form>
 
